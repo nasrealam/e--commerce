@@ -3,7 +3,7 @@
   <div *ngFor="let product of products" class="card-design">
     <h1>{{ product.name }}</h1>
     <h3>
-      <div class="image-box"><img [src]="product.image" /></div>
+      <div class="image-box"><img [src]="getImgSrc(product.image)" /></div>
     </h3>
     <p *ngIf="product.description"><strong>Description:</strong> {{ product.description }}</p>
     <button (click)="addToCart(product)" class="btn-add">Add to Cart</button>

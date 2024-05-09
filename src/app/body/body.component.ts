@@ -31,7 +31,8 @@ export class BodyComponent implements OnInit {
     );
   }
 
-  getImgSrc(src: string) {
-    return environment.deployurl + src;
+  getImgSrc(src: string | undefined) {
+    if (src) return environment.deployurl + src;
+    else return '';
   }
 }
