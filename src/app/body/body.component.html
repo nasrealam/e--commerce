@@ -1,0 +1,13 @@
+<app-notification [cartData]="cartItems"></app-notification>
+<div class="flex-container">
+  <div *ngFor="let product of products" class="card-design">
+    <h1>{{ product.name }}</h1>
+    <h3>
+      <div class="image-box"><img [src]="product.image" /></div>
+    </h3>
+    <p *ngIf="product.description"><strong>Description:</strong> {{ product.description }}</p>
+    <button (click)="addToCart(product)" class="btn-add">Add to Cart</button>
+  </div>
+</div>
+<!-- <app-data [cartAddItem]="getItems()"></app-data> -->
+<app-data [cartItems]="cartItems" (removeCartItem)="removeCartItem($event)"></app-data>

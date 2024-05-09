@@ -1,0 +1,9 @@
+<h3>Cart Items</h3>
+<!-- {{cartAddItem|json}} -->
+
+<div class="cart-item" *ngFor="let item of cartItems">
+  <span>{{ item.name }}</span>
+  <span>{{ item.qty }}</span> *
+  <span>{{ item.price | currency }}</span>
+  <button (click)="deleteItem(item)">Remove Items</button>
+</div>
