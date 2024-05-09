@@ -4,7 +4,8 @@ import { DataComponent } from './body/data/data.component';
 import { BodyComponent } from './body/body.component';
 
 const routes: Routes = [
-  { path: '', component: BodyComponent },
+  { path: '**', component: BodyComponent },
+  // { path: '', component: BodyComponent },
   { path: 'data', component: DataComponent },
 ];
 
