@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItem, Product, products } from '../products';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-body',
@@ -28,5 +29,9 @@ export class BodyComponent implements OnInit {
       this.cartItems.findIndex((x) => x.id === product.id),
       1
     );
+  }
+
+  getImgSrc(src: string) {
+    return environment.deployurl + src;
   }
 }
