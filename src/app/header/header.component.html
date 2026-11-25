@@ -1,0 +1,12 @@
+<mat-toolbar color="primary" class="header">
+  <a routerLink="/" class="brand">E-commerce</a>
+  <span class="spacer"></span>
+  <a
+    routerLink="/cart"
+    routerLinkActive="active"
+    class="cart-link"
+    [attr.aria-label]="'Cart, ' + ((count$ | async) ?? 0) + ' items'"
+  >
+    <mat-icon [matBadge]="(count$ | async) || null" matBadgeColor="warn" aria-hidden="true">shopping_cart</mat-icon>
+  </a>
+</mat-toolbar>

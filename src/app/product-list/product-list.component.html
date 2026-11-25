@@ -1,0 +1,15 @@
+<section class="grid" aria-label="Products">
+  <mat-card *ngFor="let product of products; trackBy: trackById" class="product">
+    <img mat-card-image [src]="product.image" [alt]="product.name" loading="lazy" />
+    <mat-card-header>
+      <mat-card-title>{{ product.name }}</mat-card-title>
+      <mat-card-subtitle>{{ product.price | currency }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>{{ product.description }}</mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="primary" type="button" (click)="addToCart(product)">
+        <mat-icon>add_shopping_cart</mat-icon> Add to cart
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</section>

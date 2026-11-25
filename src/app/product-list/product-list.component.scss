@@ -1,0 +1,23 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    height: 220px;
+    object-fit: contain;
+    background: #fafafa;
+  }
+
+  mat-card-content {
+    flex: 1;
+  }
+}

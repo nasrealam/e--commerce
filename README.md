@@ -1,27 +1,25 @@
-# ECommerce
+# E-commerce
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
+A small Angular 16 storefront: browse products, add them to a cart, adjust quantities and see the running total. The cart persists in `localStorage`.
 
-## Development server
+## Structure
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```
+src/app
+├── models/        Product / CartItem types
+├── data/          Static product catalogue
+├── services/      CartService (state + persistence)
+├── header/        Toolbar with cart badge
+├── product-list/  Catalogue page (/)
+└── cart/          Cart page (/cart)
+```
 
-## Code scaffolding
+## Scripts
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Command | Description |
+| --- | --- |
+| `npm start` | Dev server at http://localhost:4200 |
+| `npm test -- --watch=false --browsers=ChromeHeadlessCI` | Unit tests (headless) |
+| `npm run build` | Production build into `docs/` for GitHub Pages |
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Pushes to `main` run tests, build and deploy via GitHub Actions.

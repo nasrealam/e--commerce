@@ -1,0 +1,41 @@
+<section class="cart" aria-labelledby="cart-title">
+  <h1 id="cart-title">Your cart</h1>
+
+  <ng-container *ngIf="items$ | async as items">
+    <div *ngIf="items.length === 0; else list" class="empty">
+      <mat-icon aria-hidden="true">remove_shopping_cart</mat-icon>
+      <p>Your cart is empty.</p>
+      <a mat-flat-button color="primary" routerLink="/">Continue shopping</a>
+    </div>
+
+    <ng-template #list>
+      <ul class="lines">
+        <li *ngFor="let item of items; trackBy: trackById" class="line">
+          <img [src]="item.image" [alt]="item.name" />
+          <div class="info">
+            <strong>{{ item.name }}</strong>
+            <span class="unit">{{ item.price | currency }} each</span>
+          </div>
+          <div class="qty">
+            <button mat-icon-button type="button" [attr.aria-label]="'Decrease quantity of ' + item.name" (click)="setQty(item, item.qty - 1)">
+              <mat-icon>remove</mat-icon>
+            </button>
+            <span aria-live="polite">{{ item.qty }}</span>
+            <button mat-icon-button type="button" [attr.aria-label]="'Increase quantity of ' + item.name" (click)="setQty(item, item.qty + 1)">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+          <span class="subtotal">{{ item.price * item.qty | currency }}</span>
+          <button mat-icon-button type="button" [attr.aria-label]="'Remove ' + item.name" (click)="remove(item)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </li>
+      </ul>
+
+      <footer class="summary">
+        <button mat-button type="button" (click)="clear()">Clear cart</button>
+        <span class="total">Total: <strong>{{ total$ | async | currency }}</strong></span>
+      </footer>
+    </ng-template>
+  </ng-container>
+</section>

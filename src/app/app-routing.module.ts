@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DataComponent } from './body/data/data.component';
-import { BodyComponent } from './body/body.component';
+import { CartComponent } from './cart/cart.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 const routes: Routes = [
-  { path: '', component: BodyComponent },
-  { path: 'data', component: DataComponent },
+  { path: '', component: ProductListComponent, title: 'Products | E-commerce' },
+  { path: 'cart', component: CartComponent, title: 'Cart | E-commerce' },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
+  // Hash routing keeps deep links working on GitHub Pages.
   imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
